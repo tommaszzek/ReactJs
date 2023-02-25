@@ -3,26 +3,30 @@ import './App.css';
 
 
 function App() {
- const [count, setCount] = useState(0);
- const handleAdd=()=>{
-  setCount(count=>count+1);
-  setCount(count=>count+1);
-  setCount(count=>count+1);
- }
- const handleSub=()=>{
-  setCount(count-1);
- }
- const handleReset=()=>{
-  setCount(0);
- }
+ const [zadania, setZadanie] = useState([
+  {id:1,nazwa:'Wyjść z psem ' , status:false},
+  {id:2,nazwa:'Nauczyć się na biologię ' , status:false},
+  {id:3,nazwa:'Napisać projekt z react ' , status:true},
+  {id:4,nazwa:'Klasówka z chemi ' , status:false}
+
+ ]);
+const handleDelete=(id)=>{
+  setZadanie(zadania.filter(zad=>zad.id !==id));
+}
+ 
   return (
     <div className="App">
      <h1>WITAJ    </h1>
-     <h2>{count}</h2>
-     <button onClick={handleAdd} className='add'>Ddodaj o 3</button>
-     <button onClick={handleSub} className='sub'>Odejmuj</button>
-     <button onClick={handleReset} className='reset'>Reset</button>
-   
+     <h2>Oto twoje zadania :</h2>
+    <ul>
+      {zadania.map((zad)=>(
+        <li key={zad.id}>
+          {zad.id} - treść : {zad.nazwa}
+          <button onClick={()=>handleDelete(zad.id)} className='sub'>Usuń</button>
+        </li>
+      ))}
+
+    </ul>
     </div>
   );
 }
