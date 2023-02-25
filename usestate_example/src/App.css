@@ -55,4 +55,15 @@ ul {
   color: #FFFFFF;
   text-align: left;
   margin-left: 40%;
+}
+ul li {
+  list-style: none;
+}
+
+.complete {
+  color: #6ddf4e;
+}
+
+.incomplete {
+  color: #e9a99e;
 }/*# sourceMappingURL=App.css.map */
