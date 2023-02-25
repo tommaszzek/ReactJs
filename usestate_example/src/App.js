@@ -3,14 +3,14 @@ import './App.css';
 
 
 function App() {
-  let index=0;
+  
 
 
  const [zadania, setZadanie] = useState([
-  {id:index++,nazwa:'Wyjść z psem ' , status:false},
-  {id:index++,nazwa:'Nauczyć się na biologię ' , status:false},
-  {id:index++,nazwa:'Napisać projekt z react ' , status:true},
-  {id:index++,nazwa:'Klasówka z chemi ' , status:false}
+  {id:Math.floor(Math.random()*10000),nazwa:'Wyjść z psem ' , status:false},
+  {id:Math.floor(Math.random()*10000),nazwa:'Nauczyć się na biologię ' , status:false},
+  {id:Math.floor(Math.random()*10000),nazwa:'Napisać projekt z react ' , status:true},
+  {id:Math.floor(Math.random()*10000),nazwa:'Klasówka z chemi ' , status:false}
 
  ]);
  const [name, setName] = useState('');
@@ -22,10 +22,10 @@ const handleDelete=(id)=>{
 }
  
  const handleAdd=(id)=>{
+  let rek=zadania.filter(zad=>zad.id===id);
+  rek[0].status=true;
 
-  zadania.map((zad)=>{if(zad.id===id) zad.status=true});
-  
-  setZadanie(zadania);
+     setZadanie(Object.assign(rek,zadania));
   }
   return (
     <div className="App">
@@ -33,6 +33,7 @@ const handleDelete=(id)=>{
      <hr/>
      <h2> Dodaj zaanie :</h2>
      <input
+     type="text"
         value={name}
         onChange={e => setName(e.target.value)}
       />
@@ -40,7 +41,7 @@ const handleDelete=(id)=>{
       onClick={() => {
         setName('');
         zadania.push({
-          id:index++,
+          id:Math.floor(Math.random()*10000),
           nazwa: name,
           status:false
         })
@@ -56,12 +57,12 @@ const handleDelete=(id)=>{
      
     <ul>
       {status && zadania.map((zad)=>(
-        <li key={zad.id} className={zad.status ? `complete` :`incomplete`}>
-          {zad.id} - treść : {zad.nazwa}
+        <li key={zad.id} >
+         <span className={zad.status ? `complete` :`incomplete`}> {zad.nazwa} </span>
           <button onClick={()=>handleDelete(zad.id)} className='sub'>Usuń</button>
           <button 
           onClick={()=>handleAdd(zad.id)} 
-          className='add'>Zrobione</button>
+          className={!zad.status ? `add`: `add_dis`}>{!zad.status ? `Do zrobienia`: `Wykonane`} </button>
         </li>
       ))}
 

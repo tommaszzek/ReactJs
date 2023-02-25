@@ -47,6 +47,13 @@ button.sub{
 button.reset{
   background-color: #0F3460;
 }
+button.add_dis{
+        cursor: not-allowed;
+        pointer-events: none;
+         color: #1325c4;
+        background-color: #c0c0c0;
+
+}
 ul{
   color: #FFFFFF;
   text-align: left;
@@ -57,11 +64,17 @@ ul{
 }
 .complete{
   color: #6ddf4e;
+  font-size: 1.5em;
   
 
 }
 .incomplete{
   color: #e9a99e;
+  font-size: 1.5em;
   
-  
+}
+input[type=text]{
+  width: 350px;
+  height: 2rem;
+  font-size: 1.3em;
 }
