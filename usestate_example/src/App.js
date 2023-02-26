@@ -15,7 +15,29 @@ function App() {
  ]);
  const [name, setName] = useState('');
  const [status, setStatus] = useState(true);
+ const [update, setUpdate] = useState();
 
+ const handleUdpate=(id)=>{
+  if(id){
+    setUpdate('t');
+            let rek=zadania.filter(zad=>zad.id===id);
+            console.log(rek);
+            setZadanie(zadania.filter(zad=>zad.id !==id));
+            setName(rek[0].nazwa);
+            
+    
+}
+  else{
+      setName('');
+      setUpdate();
+      zadania.push({
+        id:Math.floor(Math.random()*10000),
+        nazwa: name,
+        status:false
+      })
+  }
+
+ }
 
 const handleDelete=(id)=>{
   setZadanie(zadania.filter(zad=>zad.id !==id));
@@ -36,30 +58,26 @@ const handleDelete=(id)=>{
      type="text"
         value={name}
         onChange={e => setName(e.target.value)}
+        
       />
       <button 
-      onClick={() => {
-        setName('');
-        zadania.push({
-          id:Math.floor(Math.random()*10000),
-          nazwa: name,
-          status:false
-        })
-      
-      }
+      onClick={() => {handleUdpate()}
       
     }
-      className='add'
-      >Add</button>
+      className={update ? `sub_1 ` :`add`}
+      >
+        {update ? `Update ` :`Add`}
+      </button>
       <hr/>
      <h2>Oto twoje zadania :</h2>
-     <button onClick={()=>setStatus(!status)} className='sub'>{status ? `Ukryj` :`Pokaz`} </button>
-     
+     <button onClick={()=>setStatus(!status)} className={status ? `sub` :`add`}>{status ? `Ukryj` :`Pokaz`} </button>
+     <button onClick={()=>setZadanie([])} className='sub_1'>USUŃ WSZYSTKIE ZADANIA </button>
     <ul>
       {status && zadania.map((zad)=>(
         <li key={zad.id} >
          <span className={zad.status ? `complete` :`incomplete`}> {zad.nazwa} </span>
-          <button onClick={()=>handleDelete(zad.id)} className='sub'>Usuń</button>
+          <button onClick={()=>handleDelete(zad.id)} className='sub_1'>Usuń</button>
+          <button onClick={()=>handleUdpate(zad.id)} className='sub'>Update</button>
           <button 
           onClick={()=>handleAdd(zad.id)} 
           className={!zad.status ? `add`: `add_dis`}>{!zad.status ? `Do zrobienia`: `Wykonane`} </button>

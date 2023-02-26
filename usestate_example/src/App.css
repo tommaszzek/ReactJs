@@ -44,7 +44,11 @@ button.add {
 }
 
 button.sub {
-  background-color: #EB4747;
+  background-color: #adb727;
+}
+
+button.sub_1 {
+  background-color: #97320a;
 }
 
 button.reset {
