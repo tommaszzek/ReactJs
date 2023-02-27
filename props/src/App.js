@@ -1,11 +1,14 @@
+import {Header}   from './component/Header'
+import {ListTodo} from './component/ListTodo';
+
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Witaj
-        
-      </h1>
+        <Header/>
+        <ListTodo/>
     </div>
   );
 }
