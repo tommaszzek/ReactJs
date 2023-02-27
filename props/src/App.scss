@@ -1,0 +1,83 @@
+div{
+    background-color: #282c34;
+    min-height: 100vh;
+    color: rgb(96, 241, 207);
+    margin: 5px;
+    padding: 5px;
+}
+h1{
+display: inline-block;
+
+}
+.App{
+text-align: center;
+}
+
+.box{
+max-width: 200px;
+margin: 50px auto;
+border-radius: 5px;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+padding: 10px;
+}
+
+p{
+margin-top: 20px;
+font-size: 24px;
+text-align: center;
+}
+
+button{
+padding: 10px;
+margin: 20px 10px;
+font-size: 16px;
+color: #FFFFFF;
+border: 0px;
+border-radius: 5px;
+cursor: pointer;}
+
+button.add{
+background-color: #18978F;
+}
+
+button.sub{
+background-color: #adb727;
+}
+button.sub_1{
+background-color: #97320a;
+}
+
+button.reset{
+background-color: #0F3460;
+}
+button.add_dis{
+    cursor: not-allowed;
+    pointer-events: none;
+     color: #1325c4;
+    background-color: #c0c0c0;
+
+}
+ul{
+color: #FFFFFF;
+text-align: left;
+margin-left: 40%;
+li{
+list-style: none;
+}
+}
+.complete{
+color: #6ddf4e;
+font-size: 1.5em;
+
+
+}
+.incomplete{
+color: #e9a99e;
+font-size: 1.5em;
+
+}
+input[type=text]{
+width: 350px;
+height: 2rem;
+font-size: 1.3em;
+}
