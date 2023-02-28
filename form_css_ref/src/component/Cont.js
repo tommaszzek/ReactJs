@@ -1,20 +1,46 @@
+import { useState } from 'react';
 import './Cont.css';
 
 export const Cont = () => {
+  const [input1, setinput1] = useState();
+  const [input2, setinput2] = useState();
 
+
+  const handelText=(e)=>{
+    if(e.target.id==='data_1'){
+      console.log(e.target.value);
+      setinput1(e.target.value);
+    }
+    if(e.target.id==='data_2'){
+      console.log(e.target.value);
+      setinput2(e.target.value);
+    }
+  }
+  const hendelSubmit=(e)=>{
+    e.preventDefault();
+
+  }
   return (
     <>
     <div>Formularze</div>
-    <form>
+    <form onSubmit={hendelSubmit}>
       <input 
       type='text'
-      name='dane'
-      id='cos'
+      name='dane1'
+      id='data_1'
+      onChange={handelText}
+      />
+      <input 
+      type='text'
+      name='dane2'
+      id='data_2'
+      onChange={handelText}
       />
       <button type='submit'>
         zatwierdz
       </button>
-  
+    <p>{input1}</p>
+    <p>{input2}</p>
     </form>
     
     </>

@@ -3,7 +3,7 @@ import React from "react";
 export const Header = () => {
   const data={
     'color':'red',
-    'font-size':'14px'
+    'fontSize':'14px'
   }
   return (
     
