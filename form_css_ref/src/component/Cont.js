@@ -1,14 +1,22 @@
 import './Cont.css';
 
 export const Cont = () => {
-  let show=true;
+
   return (
     <>
-    <div>ZAWARTOŚĆ</div>
-    <p style={{
-        color: show ? "black" : 'blue'
-    }}     >  lorem
-    </p>
+    <div>Formularze</div>
+    <form>
+      <input 
+      type='text'
+      name='dane'
+      id='cos'
+      />
+      <button type='submit'>
+        zatwierdz
+      </button>
+  
+    </form>
+    
     </>
   )
 }
