@@ -1,6 +1,7 @@
 div {
   background-color: #282c34;
   min-height: 100vh;
+  min-width: 100vh;
   color: rgb(96, 241, 207);
   margin: 5px;
   padding: 5px;
@@ -65,10 +66,23 @@ button.add_dis {
 ul {
   color: #FFFFFF;
   text-align: left;
-  margin-left: 40%;
 }
 ul li {
   list-style: none;
+  margin: 20px 5px;
+  -webkit-box-shadow: rgba(238, 234, 13, 0.16) 0px 1px 4px;
+          box-shadow: rgba(238, 234, 13, 0.16) 0px 1px 4px;
+  border-radius: 10px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .complete {
@@ -91,4 +105,11 @@ img.myLogo {
   border: 1px solid #c0c0c0;
   width: 50px;
   height: 50px;
+}
+
+footer {
+  background-color: #546688;
+  font-size: large;
+  color: wheat;
+  padding: 25px;
 }/*# sourceMappingURL=App.css.map */
