@@ -5,5 +5,10 @@ nav{
     font-size: 1.5em;
     
 }
-
+button {
+    padding: 5px;
+    font-size: 1.3rem;
+    background-color: burlywood;
+    border-radius: 7px;
+}
 

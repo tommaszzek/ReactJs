@@ -1,15 +1,18 @@
-import { Route,Routes } from 'react-router-dom';
+import { Route,Routes,Navigate } from 'react-router-dom';
 import {Header} from './component/Header';
 import {Footer} from './component/Footer';
 import {Home} from './component/Home';
 import {Contact} from './component/Contact';
 import {Product} from './component/Product';
 import {ProductDet} from './component/ProductDet';
+import {Admin} from './component/Admin';
 
 
 import './App.css';
 
 function App() {
+const user=false;
+
   return (
     <div className="App">
       <Header/>
@@ -18,11 +21,12 @@ function App() {
          <Route path='contact' element={<Contact/>}></Route>
          <Route path='product' element={<Product/>}></Route>
          <Route path='productDet/1001' element={<ProductDet/>}></Route>
+         <Route path='admin' element={user ?<Admin /> :<Navigate to='/'/>}></Route>
       </Routes>
       <Footer/>
     </div>
   );
 }
-// 54 poczatek
+// 56 poczatek
 
 export default App;
