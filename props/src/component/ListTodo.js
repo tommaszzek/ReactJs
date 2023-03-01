@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import { AddTask } from './AddTask';
 import { Tasks } from './Tasks';
 
@@ -9,15 +9,12 @@ const [update, setUpdate] = useState();
 const [name, setName] = useState('');
 
 
- const [zadania, setZadanie] = useState([
-    {id:Math.floor(Math.random()*10000),nazwa:'Wyjść z psem ' , status:false},
-    {id:Math.floor(Math.random()*10000),nazwa:'Nauczyć się na biologię ' , status:false},
-    {id:Math.floor(Math.random()*10000),nazwa:'Napisać projekt z react ' , status:true},
-    {id:Math.floor(Math.random()*10000),nazwa:'Klasówka z chemi ' , status:false}
+ const [zadania, setZadanie] = useState(JSON.parse(localStorage.getItem('zadania')) || []);
   
-   ]);
-  
-   
+
+ useEffect(()=>{
+localStorage.setItem('zadania',JSON.stringify(zadania));
+ },[zadania])
   
    const handleUdpate=(id)=>{
     if(id){
@@ -32,11 +29,17 @@ const [name, setName] = useState('');
     else{
         setName('');
         setUpdate();
-        zadania.push({
+        // zadania.push({
+        //   id:Math.floor(Math.random()*10000),
+        //   nazwa: name,
+        //   status:false
+        // })
+        let rek={
           id:Math.floor(Math.random()*10000),
           nazwa: name,
           status:false
-        })
+        }
+        setZadanie([...zadania,rek]);
     }
   
    }
