@@ -1,23 +1,28 @@
-import React from 'react'
-import {useEffect} from 'react';
-
+import { useEffect, useState } from "react"
 
 export const Data = () => {
-    // const [user_s, setuser_s] = useState(initialState)    
-
-    // console.log(user_s)
-    // const users='https://jsonplaceholder.typicode.com/users';
-    // fetch(users).then(response=>response.json()).then(data=>setuser_s(data));
+    const [products, setProducts] = useState([]);
+    
     useEffect(() => {
-        console.log('Montowanie')
-        return console.log('Demontowanie Montowanie');
-    }, []);   
- 
+        fetch("http://localhost:8080/products")
+        .then(response => response.json())
+        .then(data => setProducts(data));
+    }, []);
 
   return (
-
-    <div>data</div>
-   
-
+    <section>
+      
+        { products.map((product) => (
+            <div  key={product.id}>
+                <p >{product.id}</p>
+                <p >{product.name}</p>
+                <p >
+                    <span>{product.price} zł</span>
+                    <span className={product.in_stock ? "instock" : "unavailable"}>{product.in_stock ? "In Stock" : "Unavailable"}</span>
+                </p>
+                <hr/>
+            </div>            
+        )) }
+    </section>
   )
 }
