@@ -1,6 +1,6 @@
 import {Link,NavLink} from 'react-router-dom';
 import React from 'react'
-import '../css/heaer.css';
+import './css/heaer.css';
 
 export const Header = () => {
   return (
